@@ -16,8 +16,10 @@
              <br>
              <span>comentário:</span><textarea></textarea>
         <br>
-        <button @click="cadastrar()">cadastrar</button>
+        <button @click.prevent="cadastrar()">cadastrar</button>
         </form>
+        <hr>
+        {{resultado}}
        
     </div>
     <script>
@@ -28,7 +30,10 @@
             },
             methods: {
                 cadastrar(){
-                    console.log(this.$refs.inputNome.value)
+                    let nome = this.$refs.inputNome.value
+                    let comentario = this.$refs.formulario[1].value
+
+                    this.resultado = `${nome}, disse: "${comentario}"`
                 }
             }})
     </script>
