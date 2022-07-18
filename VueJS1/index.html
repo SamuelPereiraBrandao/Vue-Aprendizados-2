@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="./vue.js"></script>
+
+    <title>VueJS</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Manipulando css com vueJS</h1>
+        <div :style="estilo">
+            background azul, caso seja mais de 18h ele mudara para cor vermelha / tamanho e altura aleatórios
+        </div> <!-- 'font-size' ou fontSize-->
+        {{estilo}}
+        <button @click="tamanhoTexto += 5">Aumentar texto</button>
+        <button @click="tamanhoTexto -= 5">Diminuir texto</button>
+
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app', // id
+            data:{
+                tamanhoTexto:30,
+            },
+            computed: {
+                estilo() {
+
+                    let: width = Math.floor((Math.random() * 800) + 100)
+                    let: height = Math.floor((Math.random() * 200) + 100)
+                    
+
+                    let: background = 'blue'
+                    let horas = new Date()
+
+                    if(horas.getHours() > 18){
+                        background = 'red'
+                    }
+
+                    return {
+                        background:background,
+                        width: width + 'px',
+                        height: height + 'px',
+                        padding: 10 + 'px',
+                        fontSize: this.tamanhoTexto + 'px'
+                    }
+                }
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

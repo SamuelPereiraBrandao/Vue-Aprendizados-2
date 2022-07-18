@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="./vue.js"></script>
+
+    <title>VueJS</title>
+</head>
+<body>
+    <div id="app">
+        <form ref="formulario">
+             <span>Nome</span> <input type="text" id="inputNome" ref="inputNome">
+             <br>
+             <span>comentário:</span><textarea></textarea>
+        <br>
+        <button @click="cadastrar()">cadastrar</button>
+        </form>
+       
+    </div>
+    <script>
+                const vm = new Vue({
+            el: '#app', // id
+            data:{
+                resultado: ''
+            },
+            methods: {
+                cadastrar(){
+                    console.log(this.$refs.inputNome.value)
+                }
+            }})
+    </script>
+</body>
+</html>
