@@ -11,15 +11,26 @@
 </head>
 <body>
     <div id="app">
+        <p>{{texto}}</p>
+        <button @click="modificarTextoVD()">Adicionar @ (VD)</button>
+        <button onclick="modificarTexto()">Adicionar @</button>
     </div>
     <script>
+        function modificarTexto(){
+            let t = document.querySelector('p').innerText
+            t += '@'
+            document.querySelector('p').innerText = t
+
+        }
                 const vm = new Vue({
             el: '#app', // id
             data:{
-
+                texto:'DOM e Virtual DOM'
             },
             methods: {
-
+                modificarTextoVD(){
+                    this.texto += '@'
+                }
             }})
     </script>
 </body>
