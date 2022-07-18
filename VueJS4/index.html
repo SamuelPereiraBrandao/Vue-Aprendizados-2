@@ -10,17 +10,24 @@
     <title>VueJS</title>
 </head>
 <body>
-    <div id="app">
-    </div>
+    <div id="app"></div>
     <script>
-                const vm = new Vue({
+ const vm = new Vue({
             el: '#app', // id
+            template:`
+            <div>
+                <h1> {{texto1}} </h1>
+                <p> {{texto2}} </p>
+                </div>
+            `,
             data:{
-
+                texto1:'Template',
+                texto2:'Formas alternativas de carregar o template'
             },
             methods: {
 
             }})
+            vm.$mount('#app')
     </script>
 </body>
 </html>
